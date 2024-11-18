@@ -134,7 +134,7 @@ let fmPropiedad, fmUbicacion;
 
 //cargar datos propiedad
 function cargarPropiedades(datosPropiedad) {
-    let opcionPropiedad = ''
+    let opcionPropiedad = '<option value=""></option>'
     for (let propiedad of datosPropiedad) {
         opcionPropiedad += `<option>${propiedad.tipo}</option>`
     }
@@ -143,7 +143,7 @@ function cargarPropiedades(datosPropiedad) {
 
 //cargar datos ubicacion
 function cargarUbicaciones(datosUbicacion) {
-    let opcionUbicacion = ''
+    let opcionUbicacion = '<option value=""></option>'
     for (let ubicacion of datosUbicacion) {
         opcionUbicacion += `<option>${ubicacion.tipo}</option>`
     }
@@ -200,7 +200,7 @@ function cotizar() {
             setTimeout(() => {                  
             let poliza = parseFloat((fmPropiedad.fm * fmUbicacion.valor * metrosCuad * costoBaseMt2).toFixed(2))
             console.log(poliza)
-            let mensaje = `El monto de la poliza de un/a ${fmPropiedad.tipo}, en ${fmUbicacion.tipo}, con ${metrosCuad} mts2 es de: $${poliza}`
+            let mensaje = `El monto de la poliza de un/a ${fmPropiedad.tipo}, en ${fmUbicacion.tipo}, con ${metrosCuad} mts2 es de: <span>$${poliza}/m\u00B2</span>`
             document.getElementById("valorPoliza").innerHTML = mensaje
             console.log(mensaje)
             divPrincipal.classList.remove("div-blocked")
